@@ -1,0 +1,74 @@
+#States lab- LevelEdu demo virtual instructions
+#Created: Breya Walker,MS
+#Created: 10-12-2018
+#Modified: 4-5-2019
+
+install.packages("datasets")
+library("datasets")
+data(state)
+
+#1a,1b,1c
+summary(state.x77)
+
+#1d
+summary(state.division)
+
+#2
+StatesDF<-data.frame(state.x77)
+
+#3
+summary(StatesDF[which(StatesDF$Population=="Utah"),])
+
+#4
+View(StatesDF)
+
+#5a
+which.max(StatesDF$Life.Exp)
+
+#5b
+rownames(StatesDF[11,])
+
+#section 2: 1a
+typeof(StatesDF[11,1])
+
+#Section 2: 1b
+StatesDF$Population[11]
+
+#section 2: 2a
+StatesDF$PopulationGroup<-NA
+
+dim(StatesDF) #get the dimensions of the StatesDF dataframe
+
+i=1
+#write for loop
+for (i in 1:50)
+{
+if (StatesDF$Population[i] <=2838) {
+  StatesDF$PopulationGroup[i]="Low"}
+  else
+    {StatesDF$PopulationGroup[i]="High"}
+  i=i+1
+}
+StatesDF$PopulationGroup
+View(StatesDF)
+
+#Section 2:2b
+typeof(StatesDF$PopulationGroup)
+
+#Section 2: 3a
+class(StatesDF)
+
+#Section 2: 3b
+min(StatesDF$Income) #3098
+
+#Section 2: 3c
+
+which.min(StatesDF$Income)
+rownames(StatesDF[24,])
+
+#Section 2: 3d
+StatesDF[39,6]
+
+#Section 2: 3e
+names(StatesDF)[6]
+rownames(StatesDF[39,])
